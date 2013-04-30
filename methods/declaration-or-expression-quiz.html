@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Declaration or expression quiz</title>
+	<script type="text/javascript">
+	function gentleCurses() {
+	    console.log("darn!");
+	}
+	
+	var gentleCurses = function() {
+	    console.log("flibble sticks!");
+	}
+	
+	var curses = [
+	    function() { console.log("pretzel salt!"); },
+	    function() { console.log("jeepers!"); },
+	    function() { console.log("holy simoleans!"); }
+	];
+	
+	function CurseGenerator() {
+	    var curses = ["dino toes!", "mother of pearl"];
+	    this.curse = function () {
+	        console.log(selectCurse());
+	    }
+	    
+	    function selectCurse() {
+	        var index = Math.floor(Math.random()*curses.length);
+	        return curses[index];
+	    }
+	}
+	var curser = new CurseGenerator();
+	curser.curse();
+
+	
+	(function() {
+	    console.log("monkey socks!");
+	})();
+	</script>
+</head>
+<body>
+
+</body>
+</html>

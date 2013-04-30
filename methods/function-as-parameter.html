@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Passing a function as a parameter</title>
+	<script type="text/javascript">
+	var marshmallows = ["pink", "white", "pink", "pink", "pink", "white"];
+	
+	function filter(list, filter) {
+	    var filtered = [];
+	    for(var x=0; x<list.length; x++)
+	    {
+	        var currentItem = list[x];
+	        if(filter(currentItem)) 
+	            filtered.push(currentItem);
+	    }
+	    return filtered;
+	}
+	
+	function pinkOnly(item) {
+	    return item == "pink";
+	}
+	
+	console.log(marshmallows);
+	
+	var filteredMarshmallows = filter(marshmallows, pinkOnly);
+	console.log(filteredMarshmallows);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

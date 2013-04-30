@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Functions are objects</title>
+	<script type="text/javascript">
+	function countJellyBeans(jar)
+	{
+	    console.log("There are", jar.length, "jellybeans in the jar");
+	}
+	
+	var competition = countJellyBeans;
+	competition(["red", "green", "blue", "yellow"]);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

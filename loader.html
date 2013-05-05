@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Example loader</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js" /></script>
+	<script type="text/javascript">
+	console.originalLog = console.log;
+	console.log = function() {
+		$("#output").append(Array.prototype.join.call(arguments, " ") + "\n");
+		console.originalLog.apply(console, arguments);
+	}
+
+	$(function() { 
+		var scriptLinks = $("li[script]");
+		var sourceElement = $("#source");
+		scriptLinks.click(function() {
+			$("body").append('<script src="' + $(this).attr("script") + '.js"></' + 'script>');
+		});
+	});
+	</script>
+	<script src="creating-objects/simple-object.js" type="text/javascript"></script>
+</head>
+<body>
+
+<h2>Creating objects</h2>
+<ul>
+	<li script="creating-objects/simple-object">A simple object</li>
+	<li script="creating-objects/property-for-each">Iterating an object's properties</li>
+	<li script="creating-objects/dot-subscript-notation">Dot notation and subscript notation</li>
+	<li script="creating-objects/constructor-functions">Constructor function</li>
+</ul>
+
+<div id="source"></div>
+<iframe id="source" src="creating-objects/simple-object.js"></iframe>
+<input type="button" value="run" />
+
+<div id="output"></div>
+
+</body>
+</html>

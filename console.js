@@ -1,85 +1,97 @@
 
 if(typeof jQuery === "undefined") {
-	var script = document.createElement("script");
-	script.type = "text/javascript";
-	script.src = "http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js";
-	document.getElementsByTagName("head")[0].appendChild(script);
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src = "http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js";
+  document.getElementsByTagName("head")[0].appendChild(script);
 }
 
 window.addEventListener("load", function() {
-	var logger = new Logger();
+  var logger = new Logger();
 
-	displayCodeFromScriptBlocks();
-	wireUpRunButtons(logger);
+  displayCodeFromScriptBlocks();
+  wireUpRunButtons(logger);
 });
 
 function displayCodeFromScriptBlocks() {
-	var scripts = $("script:not([src])");
-	var body = $("body");
-	for(var x=0; x<scripts.length; x++) {
-		body.append("<div class='sample' id='sample" + x + "' contenteditable='true'>" + $(scripts[x]).html() + '</div>');
-		body.append("<input type='button' value='run' class='run-button' sample='" + x + "' />")
-	}
+  var scripts = $("script:not([src])");
+  var body = $("body");
+  for(var x=0; x<scripts.length; x++) {
+    var script = $(scripts[x]).html();
+    script = cleanScriptText(script);
 
-	var style = " \
-		.sample { \
-			background-color: #F6F6F6; \
-			font-family: monospace; \
-			white-space:pre; \
-		} \
-	";
-	body.append("<style type='text/css'>" + style + "</style>");
+    body.append("<div class='sample' id='sample" + x + "' contenteditable='true'>" + script + '</div>');
+    body.append("<input type='button' value='run' class='run-button' sample='" + x + "' />")
+  }
+
+  var style = " \
+    .sample { \
+      background-color: #F6F6F6; \
+      font-family: monospace; \
+      white-space:pre; \
+      font-size: 2em; \
+    } \
+  ";
+  body.append("<style type='text/css'>" + style + "</style>");
+}
+
+function cleanScriptText(script)
+{ 
+  script = script.replace(/^\n/, "");
+  script = script.replace('\t', "  ");
+  return script;
 }
 
 function wireUpRunButtons(logger) {
-	$(".run-button").click(function() {
-		logger.clear();
+  $(".run-button").click(function() {
+    logger.clear();
 
-		var sampleId = "#sample" + $(this).attr('sample');
-		var sample = $(sampleId).text();
-		eval(sample);
-	});
+    var sampleId = "#sample" + $(this).attr('sample');
+    var sample = $(sampleId).text();
+    eval(sample);
+  });
 }
 
 function Logger() {
-	var logElement;
+  var logElement;
 
-	createOutputLog();
-	rewriteLogMethod();	
+  createOutputLog();
+  rewriteLogMethod(); 
 
-	this.clear = function() {
-		logElement.html("");
-	}
+  this.clear = function() {
+    logElement.html("");
+  }
 
-	function createOutputLog() {
-		var body = $("body");
-		 body.after("<div id='output'></div>");
-		 logElement = $("#output");
+  function createOutputLog() {
+    var body = $("body");
+     body.after("<div id='output'></div>");
+     logElement = $("#output");
 
-		var style = " \
-			.sample { \
-				background-color: #F6F6F6; \
-				font-family: monospace; \
-			} \
-			#output { \
-				color: white; \
-				background-color: gray; \
-				font-family: monospace; \
-				height: 200px; \
-				overflow: scroll; \
-				padding: 7px; \
-				margin: 10px; \
-				white-space:pre; \
-			} \
-		";
-		body.append("<style type='text/css'>" + style + "</style>");
-	}
+    var style = " \
+      .sample { \
+        background-color: #F6F6F6; \
+        font-family: monospace; \
+      } \
+      #output { \
+        color: white; \
+        background-color: gray; \
+        font-family: monospace; \
+        height: 200px; \
+        overflow: scroll; \
+        padding: 7px; \
+        margin: 10px; \
+        white-space:pre; \
+        font-size: 2em; \
+      } \
+    ";
+    body.append("<style type='text/css'>" + style + "</style>");
+  }
 
-	function rewriteLogMethod() {
-		console.originalLog = console.log;
-		console.log = function() {
-			logElement.append(Array.prototype.join.call(arguments, " ") + "\n");
-			console.originalLog.apply(console, arguments);
-		}
-	}
+  function rewriteLogMethod() {
+    console.originalLog = console.log;
+    console.log = function() {
+      logElement.append(Array.prototype.join.call(arguments, " ") + "\n");
+      console.originalLog.apply(console, arguments);
+    }
+  }
 }

@@ -29,7 +29,7 @@ function displayCodeFromScriptBlocks() {
       background-color: #F6F6F6; \
       font-family: monospace; \
       white-space:pre; \
-      font-size: 2em; \
+      /* font-size: 2em; */ \
     } \
   ";
   body.append("<style type='text/css'>" + style + "</style>");
@@ -81,7 +81,7 @@ function Logger() {
         padding: 7px; \
         margin: 10px; \
         white-space:pre; \
-        font-size: 2em; \
+        /* font-size: 2em; */ \
       } \
     ";
     body.append("<style type='text/css'>" + style + "</style>");

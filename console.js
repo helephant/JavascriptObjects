@@ -1,3 +1,4 @@
+
 if(typeof jQuery === "undefined") {
 	var script = document.createElement("script");
 	script.type = "text/javascript";
@@ -6,21 +7,11 @@ if(typeof jQuery === "undefined") {
 }
 
 window.addEventListener("load", function() {
-	rewriteLogMethod();
+	var logger = new Logger();
 
 	displayCodeFromScriptBlocks();
-	wireUpRunButtons();
-
-	createOutputLog();
+	wireUpRunButtons(logger);
 });
-
-function rewriteLogMethod() {
-	console.originalLog = console.log;
-	console.log = function() {
-		$("#output").append(Array.prototype.join.call(arguments, " ") + "\n");
-		console.originalLog.apply(console, arguments);
-	}
-}
 
 function displayCodeFromScriptBlocks() {
 	var scripts = $("script:not([src])");
@@ -36,39 +27,57 @@ function displayCodeFromScriptBlocks() {
 			font-family: monospace; \
 		} \
 	";
-	addStyle(style);
+	body.append("<style type='text/css'>" + style + "</style>");
 }
 
-function wireUpRunButtons() {
+function wireUpRunButtons(logger) {
 	$(".run-button").click(function() {
+		logger.clear();
+
 		var sampleId = "#sample" + $(this).attr('sample');
 		var sample = $(sampleId).text();
 		eval(sample);
 	});
 }
 
-function createOutputLog() {
-	var body = $("body");
-	body.append("<div id='output'></div>")
+function Logger() {
+	var logElement;
 
-	var style = " \
-		.sample { \
-			background-color: #F6F6F6; \
-			font-family: monospace; \
-		} \
-		#output { \
-			color: white; \
-			background-color: gray; \
-			font-family: monospace; \
-			height: 200px; \
-			overflow: scroll; \
-			padding: 7px; \
-		} \
-	";
-	addStyle(style);
-}
+	createOutputLog();
+	rewriteLogMethod();	
 
-function addStyle(style) {
-	var body = $("body");
-	body.append("<style type='text/css'>" + style + "</style>")
+	this.clear = function() {
+		logElement.html("");
+	}
+
+	function createOutputLog() {
+		var body = $("body");
+		 body.after("<div id='output'></div>");
+		 logElement = $("#output");
+
+		var style = " \
+			.sample { \
+				background-color: #F6F6F6; \
+				font-family: monospace; \
+			} \
+			#output { \
+				color: white; \
+				background-color: gray; \
+				font-family: monospace; \
+				height: 200px; \
+				overflow: scroll; \
+				padding: 7px; \
+				margin: 10px; \
+			} \
+		";
+		body.append("<style type='text/css'>" + style + "</style>");
+	}
+
+	function rewriteLogMethod() {
+		console.originalLog = console.log;
+		console.log = function() {
+			logElement.append(Array.prototype.join.call(arguments, " ") + "\n");
+			console.originalLog.apply(console, arguments);
+		}
+	}
 }

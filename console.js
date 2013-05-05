@@ -17,7 +17,7 @@ function displayCodeFromScriptBlocks() {
 	var scripts = $("script:not([src])");
 	var body = $("body");
 	for(var x=0; x<scripts.length; x++) {
-		body.append("<div class='sample' style='white-space:pre;' id='sample" + x + "' contenteditable='true'>" + $(scripts[x]).html() + '</div>');
+		body.append("<div class='sample' id='sample" + x + "' contenteditable='true'>" + $(scripts[x]).html() + '</div>');
 		body.append("<input type='button' value='run' class='run-button' sample='" + x + "' />")
 	}
 
@@ -25,6 +25,7 @@ function displayCodeFromScriptBlocks() {
 		.sample { \
 			background-color: #F6F6F6; \
 			font-family: monospace; \
+			white-space:pre; \
 		} \
 	";
 	body.append("<style type='text/css'>" + style + "</style>");
@@ -68,6 +69,7 @@ function Logger() {
 				overflow: scroll; \
 				padding: 7px; \
 				margin: 10px; \
+				white-space:pre; \
 			} \
 		";
 		body.append("<style type='text/css'>" + style + "</style>");

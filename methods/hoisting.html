@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>hoisting</title>
+	<script type="text/javascript" src="../console.js"></script>
 	<script type="text/javascript">
 	functionDeclaration();
 	function functionDeclaration(items) {
@@ -11,10 +12,19 @@
 	functionExpression();
 	var functionExpression = function() {
 	    console.log("function expression");
+	    // dependantFunction();
 	}
+  
+  /*
+  // functionExpression();
+  var dependantFunction = function() {
+  	console.log("function 2");
+  }
+  // functionExpression();
+  */
 	</script>
 </head>
 <body>
-
+<a href="../index.html">home</a>
 </body>
 </html>

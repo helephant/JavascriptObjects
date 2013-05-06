@@ -28,13 +28,28 @@
 	        return curses[index];
 	    }
 	}
-	var curser = new CurseGenerator();
-	curser.curse();
-
+	var curseGenerator = new CurseGenerator();
+	curseGenerator.curse();
 	
+	document.addEventListener("click", function() {
+	    console.log("monster truck!");
+	});
+	
+	function todaysCurse() {
+	    return function() {
+	        console.log("jellyfish!");
+	    }
+	}
+	todaysCurse()();
+
 	(function() {
 	    console.log("monkey socks!");
 	})();
+	
+	var babyFriendlyCurse = function babyFriendlyCurse() {
+	    console.log("apples and oranges!");
+	}
+	babyFriendlyCurse();
 	</script>
 </head>
 <body>

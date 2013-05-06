@@ -44,7 +44,8 @@ function displayCodeFromScriptBlocks() {
     var script = $(scripts[x]).html();
     script = cleanScriptText(script);
 
-    body.append("<div class='sample' id='sample" + x + "' contenteditable='true'>" + script + '</div>');
+    body.append("<div class='sample' id='sample" + x + "' contenteditable='true'></div>");
+    $("#sample" + x).text(script);
     body.append("<input type='button' value='run' class='run-button' sample='" + x + "' />")
   }
 

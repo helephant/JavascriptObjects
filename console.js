@@ -11,7 +11,31 @@ window.addEventListener("load", function() {
 
   displayCodeFromScriptBlocks();
   wireUpRunButtons(logger);
+
+  /*
+  $(".sample").keypress(function(e) {
+    var selection = window.getSelection();
+    if(e.keyCode == 13 && typeof window.getSelection != 'undefined' && selection.isCollapsed) {
+      var range = selection.getRangeAt(0);
+
+      var script = $(this).text();
+      var beginningOfLine = script.lastIndexOf('\n', range.startOffset - 1);
+      var indentation = calculateIndentation(script, beginningOfLine);
+      var indentationNode = document.createTextNode("xxxx")
+      range.insertNode(indentationNode);
+      //range.setStart(this, range.startOffset + indentation);
+      range.setStart(this, 1);
+    }
+  }); */
 });
+
+function calculateIndentation(value, startOffset) {
+  var leadingSpaces = /^\s+/.exec(value.substring(startOffset));
+  if(leadingSpaces && leadingSpaces.length > 0) {
+    return leadingSpaces[0].length;
+  }
+  return 0;
+}
 
 function displayCodeFromScriptBlocks() {
   var scripts = $("script:not([src])");
@@ -41,12 +65,9 @@ function cleanScriptText(script)
   script = script.replace(/^\n/, ""); // trim first line
   script = script.replace('\t', "  "); // tabs tp spaces
 
-  var leadingSpaces = /^\s+/.exec(script);
-  if(leadingSpaces.length > 0)
-  {
-    var initialIndentation = leadingSpaces[0].length;
-    script = script.replace(new RegExp("^( ){" + initialIndentation +"}", "gm"), "");
-  }
+  var indentation = calculateIndentation(script);
+  if(indentation > 0)
+    script = script.replace(new RegExp("^( ){" + indentation +"}", "gm"), "");
 
   return script;
 }

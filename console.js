@@ -29,6 +29,7 @@ function displayCodeFromScriptBlocks() {
       background-color: #F6F6F6; \
       font-family: monospace; \
       white-space:pre; \
+      padding: 7px; \
       /* font-size: 2em; */ \
     } \
   ";
@@ -37,8 +38,16 @@ function displayCodeFromScriptBlocks() {
 
 function cleanScriptText(script)
 { 
-  script = script.replace(/^\n/, "");
-  script = script.replace('\t', "  ");
+  script = script.replace(/^\n/, ""); // trim first line
+  script = script.replace('\t', "  "); // tabs tp spaces
+
+  var leadingSpaces = /^\s+/.exec(script);
+  if(leadingSpaces.length > 0)
+  {
+    var initialIndentation = leadingSpaces[0].length;
+    script = script.replace(new RegExp("^( ){" + initialIndentation +"}", "gm"), "");
+  }
+
   return script;
 }
 

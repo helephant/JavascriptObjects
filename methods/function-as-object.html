@@ -1,37 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Functions are objects</title>
-	<script type="text/javascript" src="../console.js"></script>
-	<script type="text/javascript">
-	function countJellyBeans(jar)
-	{
-	    console.log("There are", jar.length, "jellybeans in the jar.");
-	    console.log("Jellybeans:", jar.join(", "));
-	}
-	
-	
-	// a function can be assigned to a variable
-	var competition = countJellyBeans;
-	competition(["red", "green", "blue", "yellow"]);
+  <title>Functions are objects</title>
+  <script type="text/javascript" src="../console.js"></script>
+  <script type="text/javascript">
+  function countJellyBeans(jar)
+  {
+      console.log("There are", jar.length, "jellybeans in the jar.");
+      console.log("Jellybeans:", jar.join(", "));
+  }
+  
+  
+  // a function can be assigned to a variable
+  var competition = countJellyBeans;
+  competition(["red", "green", "blue", "yellow"]);
+  </script>
 
+  <script type="text/javascript">
+  // function can be passed as a parameter 
+  function count(action)
+  {
+    var items = ["red", "yellow"]
+    action(items);
+  }
+  count(countJellyBeans);
+  </script>
 
-	// function can be passed as a parameter 
-	function count(action)
-	{
-		var items = ["red", "yellow"]
-		action(items);
-	}
-	count(countJellyBeans);
-
-
-	// a function can be stored in a list
-	var actions = [
-		countJellyBeans
-	]
-	for(var x=0; x<actions.length; x++)
-		actions[x](["purple", "brown", "speckled"]);
-	</script>
+  <script type="text/javascript">
+  // a function can be stored in a list
+  var actions = [
+    countJellyBeans
+  ]
+  for(var x=0; x<actions.length; x++)
+    actions[x](["purple", "brown", "speckled"]);
+  </script>
 </head>
 <body>
 <a href="../index.html">home</a>

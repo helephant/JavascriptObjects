@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>function expressions in if statement</title>
-	<script type="text/javascript" src="../console.js"></script>
-	<script type="text/javascript">
-	var favourite;
-	var name = prompt("what is your name?");
-	if(name == "helen") {
-	    favourite = function() {
-	        console.log("helen's favourite is chocolate cake");
-	    }
-	} else {
-	    favourite = function() {
-	        console.log(name, "likes", prompt("what is your favourite?"));
-	    }
-	}
-	
-	favourite();
-	</script>
+  <title>function expressions in if statement</title>
+  <script type="text/javascript" src="../console.js"></script>
+  <script type="text/javascript">
+  var favourite;
+  var name = prompt("what is your name?");
+  if(name == "helen") {
+      favourite = function() {
+          console.log("helen's favourite is chocolate cake");
+      }
+  } else {
+      favourite = function() {
+          console.log(name, "likes", prompt("what is your favourite?"));
+      }
+  }
+  
+  favourite();
+  </script>
 </head>
 <body>
 <a href="../index.html">home</a>

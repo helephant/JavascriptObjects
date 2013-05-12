@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Named functions</title>
+  <script type="text/javascript" src="../console.js"></script>
+  <script type="te(xt/javascript">
+  var eatSweets = function eat(sweets) {
+    if(sweets.length > 0)
+    {
+      console.log("Eating", sweets.pop());
+      eat(sweets);
+    }
+  };
+
+  eatSweets(['mints', 'wagon wheel', 'marshmallow']);
+  </script>
+</head>
+<body>
+<a href="../index.html">home</a>
+</body>
+</html>

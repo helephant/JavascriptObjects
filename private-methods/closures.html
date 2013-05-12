@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Nested functions</title>
+  <title>Closures</title>
   <script type="text/javascript" src="../console.js"></script>
   <script type="te(xt/javascript">
   function parentFunction() {
+    var favouriteIcecream = "cherry garcia";
+
     function childFunction() {
-      console.log("child function");
+      console.log("child function", favouriteIcecream);
     }
 
     console.log("parent function");

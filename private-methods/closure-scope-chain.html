@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Closures</title>
+  <script type="text/javascript" src="../console.js"></script>
+  <script type="te(xt/javascript">
+  function parentFunction() {
+    var favouriteIcecream = "cherry garcia";
+
+    function childFunction() {
+      // var favouriteIcecream = "fossil fuel";
+      console.log("child function", favouriteIcecream);
+      grandchildFunction();
+
+      function grandchildFunction() {
+        console.log("grandchildFunction", favouriteIcecream)
+      }
+    }
+
+    console.log("parent function", favouriteIcecream);
+    childFunction();
+  }
+
+  parentFunction();
+  </script>
+</head>
+<body>
+<a href="../index.html">home</a>
+</body>
+</html>

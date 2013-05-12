@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Closures are created when the outer function exits</title>
+  <script type="text/javascript" src="../console.js"></script>
+  <script type="text/javascript">
+  function wireUpButtons() {
+    var buttons = ["Button1", "Button2"];
+    for(var x=0; x<buttons.length; x++)
+    {
+        var button = document.createElement("input");
+        button.id = buttons[x];
+        button.type = "button";
+        button.value = buttons[x];
+        document.body.appendChild(button);
+
+        button.addEventListener("click", function()
+        {
+            console.log("I am button", x);
+        }, false);
+    }
+  }
+
+  window.onload = function() {
+    wireUpButtons();
+  }
+  </script>
+</head>
+<body>
+<a href="../index.html">home</a>
+</body>
+</html>

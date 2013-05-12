@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Privately accessible method</title>
+  <script type="text/javascript" src="../console.js"></script>
+  <script type="text/javascript">
+  function Cake(flavour, size, decoration) {
+    this.flavour = flavour;
+    this.size = size;
+    this.decoration = decoration;
+
+    function iceCake() {
+      console.log("adding icing and", decoration, "to the cake..")
+    }
+  }
+  
+  var cupcake = new Cake("chocolate", "small", "sprinkles");
+  cupcake.iceCake();
+  </script>
+</head>
+<body>
+<a href="../index.html">home</a>
+</body>
+</html>

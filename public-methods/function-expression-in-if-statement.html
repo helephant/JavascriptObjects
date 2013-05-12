@@ -4,19 +4,21 @@
   <title>function expressions in if statement</title>
   <script type="text/javascript" src="../console.js"></script>
   <script type="text/javascript">
-  var favourite;
-  var name = prompt("what is your name?");
-  if(name == "helen") {
-      favourite = function() {
-          console.log("helen's favourite is chocolate cake");
-      }
+  var licoriceFlavour = "aniseed";
+  var eat;
+
+  if(licoriceFlavour == "aniseed")
+  {
+    eat = function() {
+      console.log("delicious!");
+    };
   } else {
-      favourite = function() {
-          console.log(name, "likes", prompt("what is your favourite?"));
-      }
+    eat = function() {
+      console.log("what? This isn't licorice!");
+    }
   }
   
-  favourite();
+  eat();
   </script>
 </head>
 <body>

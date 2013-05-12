@@ -8,13 +8,7 @@
     var buttons = ["Button1", "Button2"];
     for(var x=0; x<buttons.length; x++)
     {
-        var button = document.createElement("input");
-        button.id = buttons[x];
-        button.type = "button";
-        button.value = buttons[x];
-        document.body.appendChild(button);
-
-        button.addEventListener("click", function()
+        document.getElementById(buttons[x]).addEventListener("click", function()
         {
             console.log("I am button", x);
         }, false);
@@ -28,5 +22,10 @@
 </head>
 <body>
 <a href="../index.html">home</a>
+
+<p>
+  <input type="button" id="Button1" value="Button 1" />
+  <input type="button" id="Button2" value="Button 2" />
+</p>
 </body>
 </html>

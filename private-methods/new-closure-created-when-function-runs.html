@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>A new closure is created each time the outer function runs</title>
+  <script type="text/javascript" src="../console.js"></script>
+  <script type="text/javascript">
+  function setClickColor(button, color){
+    // declare the inner event
+    button.addEventListener("click", function()
+    {
+        button.style.backgroundColor = color;
+    }, false);
+  }
+   
+  window.onload = function(){
+    setClickColor(document.getElementById("Button1"), "red");
+    setClickColor(document.getElementById("Button2"), "blue");
+  };
+  </script>
+</head>
+<body>
+<a href="../index.html">home</a>
+
+<p>
+  <input type="button" id="Button1" value="Button 1" />
+  <input type="button" id="Button2" value="Button 2" />
+</p>
+</body>
+</html>

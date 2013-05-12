@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Named functions</title>
+  <script type="text/javascript" src="../console.js"></script>
+  <script type="te(xt/javascript">
+  function outerFunction() {
+    function innerFunction() {
+      console.log("inner function");
+    }
+
+    console.log("outer function");
+    innerFunction();
+  }
+
+  outerFunction();
+  </script>
+</head>
+<body>
+<a href="../index.html">home</a>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Closures</title>
+  <script type="text/javascript" src="../console.js"></script>
+  <script type="text/javascript">
+  var jellybean = "blue";
+  if(true) {
+    var jellybean = "red";
+    console.log("jellybean", jellybean);
+  }
+  console.log("Jellybean", jellybean);
+  </script>
+
+  <script type="text/javascript">
+  var smartieFlavour = "orange";
+  for(var x=0; x<1; x++) {
+    var smartieFlavour = "blueberry";
+    console.log("Smartie flavour", smartieFlavour);
+  }
+  console.log("Smartie flavour", smartieFlavour);
+  </script>
+
+  <script type="text/javascript">
+  var favouriteIcecream = "cherry garcia";
+  if(true) {
+    (function() 
+    {
+      var favouriteIcecream = "fossil fuel";
+      console.log("Favourite icecream", favouriteIcecream);
+    })();
+  }
+  console.log("Favourite icecream", favouriteIcecream);
+  </script>
+</head>
+<body>
+<a href="../index.html">home</a>
+</body>
+</html>

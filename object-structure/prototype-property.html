@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Object Prototypes</title>
+  <script type="text/javascript" src="../console.js"></script>
+  <script type="text/javascript">
+  function Cake(flavour, size, decoration) {
+      this.flavour = flavour;
+      this.size = size;
+      this.decoration = decoration;
+  }
+  Cake.prototype.crumb = "light";
+  
+  var cupcake = new Cake("chocolate", "small", "sprinkles");
+  console.log("This cake has", cupcake.crumb, "crumb");
+  </script>
+</head>
+<body>
+<a href="../index.html">home</a>
+</body>
+</html>

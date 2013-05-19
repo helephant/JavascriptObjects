@@ -21,6 +21,9 @@
   Cupcake.prototype = new Cake();
   
   var cupcake = new Cupcake("chocolate", "sprinkles");
+  cupcake.eat = function() {
+    console.log("Yummy cupcake!");
+  }
   cupcake.eat();
   </script>
 </head>

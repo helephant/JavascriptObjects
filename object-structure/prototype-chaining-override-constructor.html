@@ -19,8 +19,15 @@
     this.decoration = decoration;
   }
   Cupcake.prototype = new Cake();
+  Cupcake.prototype.eat = function() {
+    console.log("Eating a", this.flavour, "cupcake");
+  }
+  Cupcake.prototype.unwrap = function() {
+    console.log("Taking the wrapping off the cupcake");
+  }
   
   var cupcake = new Cupcake("chocolate", "sprinkles");
+  cupcake.unwrap();
   cupcake.eat();
   </script>
 </head>

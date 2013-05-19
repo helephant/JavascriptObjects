@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Null prototype</title>
+  <script type="text/javascript" src="../console.js"></script>
+  <script type="text/javascript">
+  function Cake(flavour, size, decoration) {
+      this.flavour = flavour;
+      this.size = size;
+      this.decoration = decoration;
+  }
+  Cake.prototype = Object.create(null);
+
+
+  var cake = new Cake("chocolate", "large", "sprinkles");
+  console.log(cake);
+  console.log(cake.toString());
+  </script>
+</head>
+<body>
+<a href="../index.html">home</a>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Extending built-in types</title>
+  <script type="text/javascript" src="../console.js"></script>
+  <script type="text/javascript">
+  Object.prototype.hasOwnProperty = function() {
+    return true;
+  };
+
+  Array.prototype.has = function(item) {
+    return this.indexOf(item) > -1;
+  };
+
+  var mAndMs = ["red", "yellow", "red", "green", "blue"];
+  for(var item in mAndMs) {
+    if(mAndMs.hasOwnProperty(item))
+      console.log(item, ":", mAndMs[item]);
+  }
+  </script>
+</head>
+<body>
+<a href="../index.html">home</a>
+</body>
+</html>

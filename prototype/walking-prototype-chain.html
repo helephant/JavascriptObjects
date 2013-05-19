@@ -18,6 +18,15 @@
   
   var cupcake = new Cupcake("chocolate", "sprinkles");
 
+  /*
+  http://dmitrysoshnikov.com/ecmascript/chapter-7-2-oop-ecmascript-implementation/
+  var prototype = Object.getPrototypeOf(cupcake);
+  while(prototype) {
+    console.log(prototype);
+    prototype = Object.getPrototypeOf(prototype);
+  }
+  */
+
   console.log(cupcake.constructor);
   console.log(cupcake.constructor.prototype.constructor);
   console.log(cupcake.constructor.prototype.constructor.prototype.constructor);

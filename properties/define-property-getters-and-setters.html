@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Define property</title>
+  <script type="text/javascript" src="../console.js"></script>
+  <script type="text/javascript">
+  function Cake(flavour, size, decoration) {
+      this.flavour = flavour;
+      this.decoration = decoration;
+
+      Object.defineProperty(cupcake, "size", { 
+        enumerable : true, 
+        configurable : true,
+        get: function() { return size; },
+        set: function(value) { size = value; }
+      );
+  }
+  var cupcake = new Cake("chocolate", "small", "sprinkles");
+  console.log(cupcake.size);
+
+  cupcake.size = "fairy cake";
+  console.log(cupcake.size);
+  </script>
+</head>
+<body>
+<a href="../index.html">home</a>
+
+</body>
+</html>

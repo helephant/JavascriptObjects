@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Define property</title>
+  <script type="text/javascript" src="../console.js"></script>
+  <script type="text/javascript">
+  var cupcake = {
+    flavour: "chocolate",
+    _decoration: "none",
+    get decoration() { return this._decoration; },
+    set decoration(value) { this._decoration = value; }
+  };
+
+  console.log("decoration:", cupcake.decoration);
+  cupcake.decoration = "sprinkles";
+  console.log("decoration:", cupcake.decoration);
+  </script>
+</head>
+<body>
+<a href="../index.html">home</a>
+
+</body>
+</html>

@@ -8,12 +8,12 @@
       this.flavour = flavour;
       this.decoration = decoration;
 
-      Object.defineProperty(cupcake, "size", { 
+      Object.defineProperty(this, "size", { 
         enumerable : true, 
         configurable : true,
         get: function() { return size; },
         set: function(value) { size = value; }
-      );
+      });
   }
   var cupcake = new Cake("chocolate", "small", "sprinkles");
   console.log(cupcake.size);

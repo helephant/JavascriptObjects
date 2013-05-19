@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Prototype chaining</title>
+  <script type="text/javascript" src="../console.js"></script>
+  <script type="text/javascript">
+  function Cake(flavour, size, decoration) {
+      this.flavour = flavour;
+      this.size = size;
+      this.decoration = decoration;
+  }
+  Cake.prototype.eat = function() {
+    console.log("Eating a", this.size, this.flavour, "cake");
+  }
+
+  function Cupcake(flavour, decoration) {
+    this.flavour = flavour;
+    this.size = "small";
+    this.decoration = decoration;
+  }
+  Cupcake.prototype = new Cake();
+  /*
+  Cupcake.prototype.eat = function() {
+    console.log("Eating a", this.flavour, "cupcake");
+  }
+  */
+  
+  var cupcake = new Cupcake("chocolate", "sprinkles");
+  cupcake.eat();
+
+  /*
+  cupcake.eat = function() {
+    console.log("Yummy cupcake!");
+  }
+  cupcake.eat();
+  */
+  </script>
+</head>
+<body>
+<a href="../index.html">home</a>
+</body>
+</html>

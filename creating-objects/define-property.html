@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Define property</title>
+  <script type="text/javascript" src="../console.js"></script>
+  <script type="text/javascript">
+  var cupcake = {
+    flavour: "chocolate",
+  };
+  Object.defineProperty(cupcake, "size", { 
+    value: "small", 
+    enumerable : true, 
+    configurable : true }
+  );
+
+  for(var property in cupcake) {
+    console.log(property, ":", cupcake[property]);
+  }
+  </script>
+</head>
+<body>
+<a href="../index.html">home</a>
+
+</body>
+</html>

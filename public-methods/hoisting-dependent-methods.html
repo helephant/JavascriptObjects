@@ -4,14 +4,14 @@
   <title>hoisting</title>
   <script type="text/javascript" src="../console.js"></script>
   <script type="text/javascript">
-  functionDeclaration();
-  function functionDeclaration(items) {
-      console.log("function declaration");
-  }
-  
-  functionExpression();
   var functionExpression = function() {
       console.log("function expression");
+      dependentFunction();
+  };
+  functionExpression();
+  
+  var dependentFunction = function() {
+    console.log("function 2");
   };
   </script>
 </head>

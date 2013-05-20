@@ -88,6 +88,7 @@ function Logger() {
 
   createOutputLog();
   rewriteLogMethod(); 
+  captureErrors();
 
   this.clear = function() {
     logElement.html("");
@@ -118,11 +119,24 @@ function Logger() {
     body.append("<style type='text/css'>" + style + "</style>");
   }
 
+  function log() {
+    logElement.append(Array.prototype.join.call(arguments, " ") + "\n");
+  }
+  function error() {
+    log("<span style='color:LightPink'>" + Array.prototype.join.call(arguments, " ") + "</span>\n");
+  }
+
   function rewriteLogMethod() {
     console.originalLog = console.log;
     console.log = function() {
-      logElement.append(Array.prototype.join.call(arguments, " ") + "\n");
+      log.apply(this, arguments);
       console.originalLog.apply(console, arguments);
     }
+  }
+
+  function captureErrors() {
+    window.onerror = function(message, file, line) { 
+      error(message, "(" + file, "line:", line + ")");
+    };
   }
 }

@@ -136,7 +136,7 @@ function Logger() {
 
   function captureErrors() {
     window.onerror = function(message, file, line) { 
-      error(message, "(" + file, "line:", line + ")");
+      error(message);
     };
   }
 }

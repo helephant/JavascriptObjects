@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Constructor functions without the new operator</title>
+  <script type="text/javascript" src="../console.js"></script>
+  <script type="text/javascript">
+  function Cake(flavour, size, decoration) {
+      this.flavour = flavour;
+      this.size = size;
+      this.decoration = decoration;
+  }
+  var cupcake = Cake("chocolate", "small", "sprinkles");
+
+
+  console.log("cupcake:", cupcake);
+  console.log("window.flavour:", window.flavour);
+  console.log("window.size:", window.size);
+  console.log("window.decoration:", window.decoration);
+  </script>
+</head>
+<body>
+<a href="../index.html">home</a>
+
+</body>
+</html>

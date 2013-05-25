@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Some dual purpose built-in constructor functions</title>
+  <script type="text/javascript" src="../console.js"></script>
+  <script type="text/javascript">
+  // don't use the number constructor - it causes subtle issues
+  var number = new Number(10);
+  console.log(typeof number);
+
+  var number = Number("10");
+  console.log(typeof number);
+  </script>
+</head>
+<body>
+<a href="../index.html">home</a>
+
+</body>
+</html>

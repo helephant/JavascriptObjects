@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The callback problem</title>
+  <script type="text/javascript" src="../console.js"></script>
+  <script type="text/javascript">
+  function Cake(flavour, size, decoration) {
+      this.flavour = flavour;
+      this.size = size;
+      this.decoration = decoration;
+      this.eat = function() {
+        console.log("this is: " + this.constructor.name);
+        console.log("nom nom nom!", "Eating a", this.size, this.flavour, "cake");
+      };
+  }
+  
+  var cupcake = new Cake("chocolate", "small", "sprinkles");
+  document.addEventListener("click", cupcake.eat);
+  </script>
+</head>
+<body>
+<a href="../index.html">home</a>
+
+</body>
+</html>

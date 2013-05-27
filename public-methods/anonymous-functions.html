@@ -4,15 +4,10 @@
   <title>Anonymous functions</title>
   <script type="text/javascript" src="../console.js"></script>
   <script type="text/javascript">
-  var priceIcecream = function(flake) {
-    var cost = 1.00;
-    if(flake)
-      cost += 0.99;
-    return cost;
+  var icecream = function() {
+    console.log("Vanilla icecream with a flake");
   };
-
-  console.log("Icecream with flake:", priceIcecream(true));
-  console.log("Icecream without flake:", priceIcecream(false));
+  icecream();
   </script>
 </head>
 <body>

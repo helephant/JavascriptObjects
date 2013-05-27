@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Anonymous functions</title>
+  <script type="text/javascript" src="../console.js"></script>
+  <script type="text/javascript">
+  var icecream = function() {
+    console.log("Vanilla icecream with a flake");
+  };
+  icecream();
+
+  var custard = function custard() {
+    console.log("Fresh made vanilla custard");
+  };
+  custard();
+
+  var jelly = function sugarAndGelatinDessert() {
+    console.log("Wobble, wobble, wobble");
+    console.log("accessing the function by name inside the function:", sugarAndGelatinDessert.name)
+  };
+  jelly();
+
+  console.log("function name outside of the function", sugarAndGelatinDessert)
+  </script>
+</head>
+<body>
+<a href="../index.html">home</a>
+</body>
+</html>

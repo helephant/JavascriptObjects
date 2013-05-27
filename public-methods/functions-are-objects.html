@@ -9,8 +9,9 @@
       console.log("There are", jar.length, "jellybeans in the jar.");
       console.log("Jellybeans:", jar.join(", "));
   }
-  
-  
+  </script>
+
+  <script type="text/javascript">
   // a function can be assigned to a variable
   var competition = countJellyBeans;
   competition(["red", "green", "blue", "yellow"]);
@@ -36,18 +37,15 @@
   </script>
 
   <script type="text/javascript">
-  function icecreamMarathon() {
-  }
-
   // the function is an instance of the Object type
-  console.log(icecreamMarathon instanceof Object);
+  console.log(countJellyBeans instanceof Object);
 
   // the function was created with the function constructor
-  console.log(icecreamMarathon.constructor);
+  console.log(countJellyBeans.constructor);
 
   // you can do all the things you can do with a normal object
-  icecreamMarathon.miles = 26;
-  console.log("The icecream marathon will be", icecreamMarathon.miles, "miles");
+  countJellyBeans.maxJellyBeans = 26;
+  console.log("Please do not eat more than", countJellyBeans.maxJellyBeans, "jellybeans");
   </script>
 </head>
 <body>

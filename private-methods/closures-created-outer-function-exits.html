@@ -4,28 +4,23 @@
   <title>Closures are created when the outer function exits</title>
   <script type="text/javascript" src="../console.js"></script>
   <script type="text/javascript">
-  function wireUpButtons() {
-    var buttons = ["Button1", "Button2"];
-    for(var x=0; x<buttons.length; x++)
+  function parentFunction() {
+    var functions = [];
+    for(var x=0; x<2; x++)
     {
-        document.getElementById(buttons[x]).addEventListener("click", function()
-        {
-            console.log("I am button", x);
-        }, false);
+      functions.push(function() { 
+        console.log("The value of x is:", x);
+      })
     }
+    return functions;
   }
 
-  window.onload = function() {
-    wireUpButtons();
-  }
+  var functions = parentFunction();
+  functions[0]();
+  functions[1]();
   </script>
 </head>
 <body>
 <a href="../index.html">home</a>
-
-<p>
-  <input type="button" id="Button1" value="Button 1" />
-  <input type="button" id="Button2" value="Button 2" />
-</p>
 </body>
 </html>

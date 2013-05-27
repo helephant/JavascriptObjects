@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Private methods</title>
+  <script type="text/javascript" src="../console.js"></script>
+  <script type="text/javascript">
+  function Cake(flavour, size, decoration) {
+      this.eat = function() {
+        if(size != "none")
+        {
+          console.log("nom nom nom!", "Eating a", size, flavour, "cake");
+          reduceCakeSize();
+        }
+        else
+          console.log("no cake left :(");
+      };
+
+      function reduceCakeSize() {
+        if(size == "large")
+          size = "medium";
+        else if(size == "medium")
+          size = "small";
+        else if(size == "small")
+          size = "none";
+      }
+  }
+  
+  var large = new Cake("chocolate", "large", "sprinkles");
+  large.eat();
+  large.eat();
+  large.eat();
+  large.eat();
+  </script>
+</head>
+<body>
+<a href="../index.html">home</a>
+</body>
+</html>

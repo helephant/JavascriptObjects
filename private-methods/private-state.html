@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Private methods</title>
+  <script type="text/javascript" src="../console.js"></script>
+  <script type="text/javascript">
+  function Cake(flavour, size, decoration) {
+      this.eat = function() {
+        console.log("nom nom nom!", "Eating a", size, flavour, "cake");
+      }
+  }
+  
+  var cupcake = new Cake("chocolate", "small", "sprinkles");
+  cupcake.eat();
+
+  console.log("Cake flavour:", cupcake.flavour);
+  console.log("Cake size:", cupcake.size);
+  </script>
+</head>
+<body>
+<a href="../index.html">home</a>
+</body>
+</html>

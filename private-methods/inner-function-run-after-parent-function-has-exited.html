@@ -11,10 +11,11 @@
       console.log("My favourite icecream is", favouriteIcecream);
     }
 
-    childFunction();
+    return childFunction;
   }
 
-  parentFunction();
+  var myFunction = parentFunction();
+  myFunction();
   </script>
 </head>
 <body>

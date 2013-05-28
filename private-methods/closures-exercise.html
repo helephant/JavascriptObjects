@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Closures</title>
+  <script type="text/javascript" src="../console.js"></script>
+  <script type="text/javascript">
+  function createIdGenerator() {
+    var id = 1;
+
+    function generator() {
+
+    }
+    return generator;
+  }
+
+  var generator = createIdGenerator();
+
+  console.log("First id is 1", generator() == 1);
+  console.log("Second id is 2", generator() == 2);
+  console.log("Third id is 3", generator() == 3);
+  </script>
+</head>
+<body>
+<a href="../index.html">home</a>
+</body>
+</html>

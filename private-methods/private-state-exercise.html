@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Private methods</title>
+  <script type="text/javascript" src="../console.js"></script>
+  <script type="text/javascript">
+  function Marshmallow()
+  {
+    this.inverseFlavour = function() {
+    };
+  }
+  
+  var marshmallow = new Marshmallow("pink");
+  console.log("The inverse flavour of pink is white", marshmallow.inverseFlavour() == "white");
+  console.log("The flavour is private state", marshmallow.flavour === undefined)
+  </script>
+</head>
+<body>
+<a href="../index.html">home</a>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Private methods</title>
+  <script type="text/javascript" src="../console.js"></script>
+  <script type="text/javascript">
+  function Icecream(flavour, flake) {
+    this.flavour = flavour;
+    this.flake = flake;
+
+    this.eatFlake = function() {
+      this.flake = false;
+    }
+  }
+  
+  var icecream = new Icecream("vanilla", true);
+  console.log("The eatFlake function is private:", icecream.eatFlake === undefined);
+  </script>
+</head>
+<body>
+<a href="../index.html">home</a>
+</body>
+</html>

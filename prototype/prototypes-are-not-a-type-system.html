@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Object Prototypes</title>
+  <script type="text/javascript" src="../console.js"></script>
+  <script type="text/javascript">
+  function Cake(flavour, size, decoration) {
+      this.flavour = flavour;
+      this.size = size;
+      this.decoration = decoration;
+  }
+  Cake.prototype.eat = function() {
+    console.log("nom nom nom!", "Eating a", this.size, this.flavour, "cake");
+  }
+  
+  var cupcake = new Cake("chocolate", "small", "sprinkles");
+  cupcake.eat = "no thankyou";
+  delete cupcake.flavour;
+  cupcake.size = null;
+
+  for(var property in cupcake)
+    console.log(property, ":", cupcake[property]);
+  </script>
+</head>
+<body>
+<a href="../index.html">home</a>
+</body>
+</html>

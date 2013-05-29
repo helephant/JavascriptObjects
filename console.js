@@ -2,7 +2,8 @@
 if(typeof jQuery === "undefined") {
   var script = document.createElement("script");
   script.type = "text/javascript";
-  script.src = "http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js";
+  //script.src = "http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js";
+  script.src = "../jquery-2.0.1.min.js";
   document.getElementsByTagName("head")[0].appendChild(script);
 }
 
